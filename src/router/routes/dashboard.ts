@@ -1,4 +1,5 @@
 import { BASE_LAYOUT } from '@/layouts'
+import type {RouteRecordRaw} from "vue-router";
 
 export default {
   path: '/dashboard',
@@ -12,4 +13,4 @@ export default {
         auth: true,
       },
     }],
-}
+} as RouteRecordRaw

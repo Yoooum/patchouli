@@ -1,4 +1,5 @@
 import { BLANK_LAYOUT } from '@/layouts'
+import type {RouteRecordRaw} from "vue-router";
 
 export default {
   path: '/login',
@@ -12,4 +13,4 @@ export default {
         auth: false,
       },
     }],
-}
+} as RouteRecordRaw

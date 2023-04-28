@@ -4,14 +4,15 @@ import { NIcon } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 import { APP_MENU } from '@/config'
 import { useAppStore } from '@/stores'
+import type {Menu} from "@/types/app";
 
 const app = useAppStore()
 const activeKey = ref('')
 app.fetchMenus()
 
-const renderIcon = (icon, size) => () => h(NIcon, { size }, { default: () => h(icon) })
+const renderIcon = ({icon, size}) => () => h(NIcon, { size }, { default: () => h(icon) })
 const renderLink = (label, path) => () => h(RouterLink, { to: path }, { default: () => label })
-function generateMenu(menu) {
+function generateMenu(menu:Menu) {
   const { id, label, icon, path, children } = menu
   return {
     key: id,
