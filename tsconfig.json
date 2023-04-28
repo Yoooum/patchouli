@@ -10,6 +10,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "composite": true
+    "composite": true,
+    "types": ["vite/client","node"]
   }
 }
