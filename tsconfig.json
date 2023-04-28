@@ -1,0 +1,15 @@
+// https://github.com/vuejs/tsconfig
+{
+  "extends": [
+    "@vue/tsconfig/tsconfig.json",
+    "@vue/tsconfig/tsconfig.dom.json"
+  ],
+  "include": ["vite.config.*", "src/**/*", "src/**/*.vue"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "composite": true
+  }
+}

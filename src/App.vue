@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { darkTheme, dateZhCN, zhCN } from 'naive-ui'
 import { computed } from 'vue'
 import { useAppStore } from '@/stores'

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import SideMenu from '@/layouts/components/sidebar/index.vue'
 import TitleBar from '@/layouts/components/header/index.vue'
 import { useAppStore } from '@/stores'

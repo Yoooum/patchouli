@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import piniaPersist from 'pinia-plugin-persist'
+import piniaPersist from 'pinia-plugin-persist-uni'
 
 import App from './App.vue'
 import router from './router'
