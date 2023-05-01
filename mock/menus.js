@@ -33,6 +33,12 @@ export default [
           icon: 'chart',
           path: '/charts',
         },
+        {
+          id: 104,
+          label: '图片',
+          icon: 'upload',
+          path: '/img/upload',
+        },
       ]
     },
   },

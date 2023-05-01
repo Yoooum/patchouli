@@ -2,7 +2,9 @@
 
 </script>
 
-<template />
+<template>
+  <h1>blank</h1>
+</template>
 
 <style scoped>
 
