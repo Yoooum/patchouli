@@ -11,7 +11,7 @@ import { useAppStore } from '@/stores'
       :native-scrollbar="false"
       class="h-screen"
       collapse-mode="width"
-      :collapsed="useAppStore().current.collapsed"
+      :collapsed="useAppStore().collapsed"
       :collapsed-width="64"
       :width="240"
       :show-trigger="false"

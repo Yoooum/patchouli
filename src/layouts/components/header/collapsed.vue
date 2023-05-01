@@ -7,9 +7,9 @@ const app = useAppStore()
 
 <template>
   <!-- 侧边栏展开按钮 -->
-  <n-button text class="h-8 w-8" @click="app.current.collapsed = !app.current.collapsed">
+  <n-button text class="h-8 w-8" @click="app.collapsed = !app.collapsed">
     <n-icon :size="20">
-      <template v-if="app.current.collapsed">
+      <template v-if="app.collapsed">
         <MenuUnfoldOutlined />
       </template>
       <template v-else>

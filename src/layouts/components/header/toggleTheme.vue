@@ -7,9 +7,9 @@ const app = useAppStore()
 
 <template>
   <!-- 切换黑暗模式 -->
-  <n-button text class="h-8 w-8" @click="app.current.dark = !app.current.dark">
+  <n-button text class="h-8 w-8" @click="app.dark = !app.dark">
     <n-icon :size="20">
-      <template v-if="app.current.dark">
+      <template v-if="app.dark">
         <Sun />
       </template>
       <template v-else>

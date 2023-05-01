@@ -2,10 +2,10 @@
 import { darkTheme, dateZhCN, zhCN } from 'naive-ui'
 import { computed } from 'vue'
 import { useAppStore } from '@/stores'
-const app = useAppStore()
-const { dark } = app.current
-const theme = computed(() => dark ? darkTheme : null)
 
+const app = useAppStore()
+
+const theme = computed(() => app.dark ? darkTheme : null)
 </script>
 
 <template>

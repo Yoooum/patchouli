@@ -3,12 +3,8 @@ import { ref } from 'vue'
 import api from '@/server/api'
 
 export const useAppStore = defineStore('app', () => {
-  const current = ref({
-    route: '/',
-    dark: false,
-    collapsed: false,
-    hasLogin: false,
-  })
+  const dark = ref(false)
+  const collapsed = ref(false)
   const menus = ref([])
 
   const fetchMenus = async () => {
@@ -23,7 +19,7 @@ export const useAppStore = defineStore('app', () => {
   }
 
   return {
-    current, fetchMenus, menus,
+    dark, collapsed, fetchMenus, menus,
   }
 },
 {
