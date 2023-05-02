@@ -6,18 +6,18 @@ import Avatar from '@/layouts/components/header/avatar.vue'
 </script>
 
 <template>
-    <n-card size="small">
-  <n-space justify="space-between" class="h-8">
-    <n-space align="center">
-      <Collapsed/>
-      <Breadcrumb />
+  <n-card size="small">
+    <n-space justify="space-between" class="h-8">
+      <n-space align="center">
+        <Collapsed />
+        <Breadcrumb />
+      </n-space>
+      <n-space>
+        <ToggleTheme />
+        <Avatar />
+      </n-space>
     </n-space>
-    <n-space>
-      <ToggleTheme />
-      <Avatar />
-    </n-space>
-  </n-space>
-        </n-card>
+  </n-card>
 </template>
 
 <style scoped>

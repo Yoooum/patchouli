@@ -5,7 +5,6 @@ import api from '@/server/api'
 export const useUserStore = defineStore('user', () => {
   const user = ref()
 
-
   const fetchUser = async () => {
     try {
       const response = await api.fetchUser()
@@ -29,7 +28,7 @@ export const useUserStore = defineStore('user', () => {
   }
 
   return {
-    fetchUser, user,logout
+    fetchUser, user, logout,
   }
 },
 {

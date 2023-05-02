@@ -30,7 +30,7 @@ export default [
         {
           id: 103,
           label: 'Chart 示例',
-          icon: 'chart',
+          icon: 'extension',
           path: '/charts',
         },
         {

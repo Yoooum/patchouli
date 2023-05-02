@@ -26,7 +26,7 @@ import { useAppStore } from '@/stores'
         <TitleBar />
       </n-layout-header>
       <!-- 右下：内容 -->
-      <n-layout-content>
+      <n-layout-content class="p-5">
         <router-view />
       </n-layout-content>
     </n-layout>

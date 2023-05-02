@@ -14,9 +14,9 @@ export default [
             name: 'admin',
             description: '管理员',
             permissions: [],
-            menus: []
-          }
-        ]
+            menus: [],
+          },
+        ],
       }
     },
   },
@@ -24,10 +24,10 @@ export default [
     url: '/api/logout',
     method: 'post',
     response: () => {
-        return {
-            code: 200,
-            message: 'success',
-        }
-    }
-  }
+      return {
+        code: 200,
+        message: 'success',
+      }
+    },
+  },
 ]
