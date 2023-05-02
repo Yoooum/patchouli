@@ -7,6 +7,7 @@ const router = createRouter({
     {
       path: '/',
       component: BASE_LAYOUT,
+      redirect: '/dashboard',
       meta: {
         auth: true,
       },

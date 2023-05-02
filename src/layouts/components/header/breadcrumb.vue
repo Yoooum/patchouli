@@ -31,14 +31,14 @@ watch(() => route.path, (path) => {
 </script>
 
 <template>
-  <n-breadcrumb>
-    <n-breadcrumb-item
-      v-for="({ title, path }, index) in data"
-      :key="index" :href="path"
-    >
-      {{ title }}
-    </n-breadcrumb-item>
-  </n-breadcrumb>
+    <n-breadcrumb>
+      <n-breadcrumb-item
+        v-for="({ title, path }, index) in data"
+        :key="index" :href="path"
+      >
+        {{ title }}
+      </n-breadcrumb-item>
+    </n-breadcrumb>
 </template>
 
 <style scoped>

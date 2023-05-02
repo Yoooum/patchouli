@@ -1,9 +1,9 @@
 <script setup>
-import { computed, h } from 'vue'
-import { NIcon } from 'naive-ui'
-import { RouterLink, useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import { APP_MENU } from '@/config'
 import { useAppStore } from '@/stores'
+import { renderIcon, renderLink } from '@/utils'
 
 const app = useAppStore()
 const route = useRoute()
@@ -19,9 +19,6 @@ const activeKey = computed(() => {
 })
 
 app.fetchMenus()
-
-const renderIcon = (icon, size) => () => h(NIcon, { size }, { default: () => h(icon) })
-const renderLink = (label, path) => () => h(RouterLink, { to: path }, { default: () => label })
 
 // 递归生成菜单项
 function generateMenu(menu) {
