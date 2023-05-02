@@ -1,60 +1,67 @@
 <script setup>
 import { computed, ref } from 'vue'
-import {NButton, NSpace, useMessage} from 'naive-ui'
+import { NButton, NSpace, useMessage } from 'naive-ui'
 import RoleFormDrawer from '@/pages/role/components/RoleFormDrawer.vue'
 import { useAppStore } from '@/stores'
 import { renderIcon } from '@/utils'
 import { APP_MENU } from '@/config'
 import { createTableColumns, createTableData } from '@/pages/role/table'
+
 const message = useMessage()
 const app = useAppStore()
 const refDrawer = ref()
 const tableData = ref([])
 const loading = ref(false)
-const pagination = ref({
-  page: 1,
-  pageSize: 10,
-  itemCount: 0,
-  pageSizes: [10, 20, 30, 40, 50],
-})
 
 fetchTableData()
 function fetchTableData() {
   loading.value = true
   try {
     tableData.value = createTableData()
-    pagination.value.itemCount = tableData.value.length
   }
   finally {
     loading.value = false
   }
 }
 
+// type 为 add 时，data 为空对象，edit 时，data 为当前行数据
 function openDrawer(type, data) {
   if (type !== 'add' && type !== 'edit')
     throw new Error('type must be add or edit')
+    // add 时，data 为空对象，需要设置默认值
   if (type === 'add') {
-      data = {
-        ...refDrawer.value?.data
-      }
+    data = {
+      ...refDrawer.value?.data,
+    }
   }
   refDrawer.value?.form.openDrawer(type, data)
 }
 function onUpdateRole(data) {
+  // 解构赋值，防止修改原数据
+  data = { ...data }
   openDrawer('edit', data)
 }
 
 function onSaveData(data) {
-  const add = () => tableData.value.push({ ...data })
+  const init = {
+    id: tableData.value.length + 1,
+    createTime: new Date().toLocaleString(),
+    updateTime: new Date().toLocaleString(),
+  }
+  const add = () => tableData.value.push({ ...data, ...init })
   const edit = () => {
-    const index = tableData.value.findIndex((item) => item.id === data.id)
+    data.updateTime = init.updateTime
+    const index = tableData.value.findIndex(item => item?.id === data.id)
     tableData.value.splice(index, 1, data)
   }
   data.id ? edit() : add()
   message.success('保存成功')
+  refDrawer.value?.form.closeDrawer()
 }
 function onRemoveRole(data) {
-
+  const index = tableData.value.findIndex(item => item?.id === data.id)
+  tableData.value.splice(index, 1)
+  message.success('删除成功')
 }
 const columns = createTableColumns({
   onUpdateRole,
@@ -68,8 +75,8 @@ const menuTreeData = computed(() => {
       label: menu.label,
       key: menu.id,
       prefix: (menu.icon && APP_MENU.iconMap[menu.icon])
-          ? renderIcon(APP_MENU.iconMap[menu.icon])
-          : renderIcon(APP_MENU.iconMap.extension),
+        ? renderIcon(APP_MENU.iconMap[menu.icon])
+        : renderIcon(APP_MENU.iconMap.extension),
       children: menu.children?.map((child) => {
         return {
           label: child.label,
@@ -95,7 +102,7 @@ const menuTreeData = computed(() => {
       :bordered="false"
       :columns="columns"
       :data="tableData"
-      :pagination="pagination"
+      pagination
     />
   </n-card>
   <RoleFormDrawer

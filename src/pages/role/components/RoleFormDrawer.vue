@@ -18,22 +18,22 @@ const form = ref({
     menus: [],
   },
   type: 'add',
-    handleSubmit: () => {
-      emit('saveData', form.value.data)
-    },
-    openDrawer: (type, data) => {
-      form.value.type = type
-      form.value.data = data
-      show.value = true
-    },
-    closeDrawer: () => {
-      show.value = false
-    },
+  handleSubmit: () => {
+    emit('saveData', form.value.data)
+  },
+  openDrawer: (type, data) => {
+    form.value.type = type
+    form.value.data = data
+    show.value = true
+  },
+  closeDrawer: () => {
+    show.value = false
+  },
 })
 
 defineExpose({
   show,
-  form
+  form,
 })
 </script>
 
