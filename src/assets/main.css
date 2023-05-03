@@ -33,3 +33,17 @@ body {
     opacity: 0;
     transform: translateX(30px);
 }
+
+/* 去掉密码输入框默认的小眼睛 */
+input[type="password"]::-ms-reveal{
+ display:none
+}
+input[type="password"]::-ms-clear{
+ display:none
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,23 +1,27 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { NButton, NSpace, useMessage } from 'naive-ui'
-import RoleFormDrawer from '@/pages/role/components/RoleFormDrawer.vue'
+import RoleFormDrawer from './components/RoleFormDrawer.vue'
+import { createTableColumns, createTableData } from './table'
 import { useAppStore } from '@/stores'
 import { renderIcon } from '@/utils'
 import { APP_MENU } from '@/config'
-import { createTableColumns, createTableData } from '@/pages/role/table'
+import SearchForm from '@/pages/role/components/SearchForm.vue'
 
 const message = useMessage()
 const app = useAppStore()
+const refSearch = ref()
 const refDrawer = ref()
 const tableData = ref([])
 const loading = ref(false)
 
 fetchTableData()
-function fetchTableData() {
+
+function fetchTableData(search) {
   loading.value = true
   try {
-    tableData.value = createTableData()
+    console.log('search', search)
+    tableData.value = createTableData(search)
   }
   finally {
     loading.value = false
@@ -97,6 +101,10 @@ const menuTreeData = computed(() => {
         </NButton>
       </NSpace>
     </template>
+    <SearchForm
+      ref="refSearch"
+      @search="fetchTableData"
+    />
     <n-data-table
       :loading="loading"
       :bordered="false"

@@ -3,8 +3,8 @@ import { ref } from 'vue'
 import { rules } from '../form'
 
 // 定义从父组件传递过来的props: menuTreeData
-const { menuTreeData = [] } = defineProps({
-  menuTreeData: { type: Array, default: () => [] },
+const { roleOptions = [] } = defineProps({
+  roleOptions: { type: Array, default: () => [] },
 })
 // 定义向父组件传递的事件: saveData
 const emit = defineEmits(['saveData'])
@@ -14,9 +14,11 @@ const formRef = ref()
 const form = ref({
   data: {
     id: undefined,
-    name: '',
-    description: '',
-    menus: [],
+    username: '',
+    password: '',
+    email: '',
+    phone: '',
+    role: undefined,
   },
   type: 'add',
   handleSubmit: () => {
@@ -46,39 +48,39 @@ defineExpose({
   <n-drawer v-model:show="show" :mask-closable="false" :width="500">
     <n-drawer-content
       closable
-      :title="['添加角色', '修改角色'][Number(form.type === 'edit')]"
+      :title="['添加用户', '修改用户'][Number(form.type === 'edit')]"
       :native-scrollbar="false"
     >
       <n-form
         ref="formRef"
         label-placement="left"
+        label-align="right"
         require-mark-placement="right-hanging"
         :model="form.data"
         :rules="rules"
       >
-        <n-form-item label="角色名称" path="name">
-          <n-input v-model:value="form.data.name" placeholder="请输入角色名称" clearable />
+        <n-form-item label="用户账号" path="username">
+          <n-input v-model:value="form.data.username" type="text" placeholder="请输入用户名" />
         </n-form-item>
-        <n-form-item label="角色描述" path="description">
+        <n-form-item label="用户密码" path="password">
           <n-input
-            v-model:value="form.data.description" placeholder="请输入角色描述" clearable
-            class="w-full" type="textarea"
-            :autosize="{
-              minRows: 3,
-              maxRows: 5,
-            }"
+            v-model:value="form.data.password" type="password" placeholder="请输入密码"
+            :input-props="{ autocomplete: 'new-password' }" show-password-on="click"
           />
         </n-form-item>
-        <n-form-item label="菜单权限">
-          <n-tree
-            v-model:checked-keys="form.data.menus"
-            :data="menuTreeData"
-            block-line
-            cascade
-            checkable
-            check-on-click
-            default-expand-all
-            :selectable="false"
+        <template v-if="form.type === 'edit'">
+          <n-form-item label="用户邮箱" path="email">
+            <n-input v-model:value="form.data.email" type="text" placeholder="请输入邮箱" />
+          </n-form-item>
+          <n-form-item label="用户手机" path="phone">
+            <n-input v-model:value="form.data.phone" type="text" placeholder="请输入手机号" />
+          </n-form-item>
+        </template>
+        <n-form-item label="用户角色">
+          <n-select
+            v-model:value="form.data.role"
+            placeholder="请选择角色"
+            :options="roleOptions"
           />
         </n-form-item>
       </n-form>
