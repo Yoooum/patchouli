@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import {NButton, NPopconfirm, NSpace, NTag} from 'naive-ui'
+import { NButton, NPopconfirm, NSpace, NTag } from 'naive-ui'
 
 function renderButton(row, type, label, action) {
   return h(NButton, { type, size: 'small', onClick: () => action?.(row) }, { default: () => label })
@@ -23,7 +23,7 @@ function createTableColumns({ onUpdateRole, onRemoveRole, valueToLabel }) {
       key: 'role',
       render: (row) => {
         return h(NTag, { type: 'primary' }, { default: () => valueToLabel?.(row.id) })
-      }
+      },
     },
     {
       title: '手机',

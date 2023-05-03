@@ -6,9 +6,9 @@ export default {
   children: [
     {
       path: '',
-      name: 'login',
       component: () => import('@/pages/login/index.vue'),
       meta: {
+        title: '登录',
         auth: false,
       },
     }],

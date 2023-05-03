@@ -47,3 +47,18 @@ pre {
     padding: 10px;
     border-radius: 5px;
 }
+
+/* https://github.com/07akioni/vfonts */
+/** in your css */
+selector {
+    font-family: v-sans, v-mono, serif;
+}
+
+/** for available font weights, see the following section */
+selector {
+  font-weight: 400; /** regular */
+}
+
+selector {
+  font-weight: 500; /** medium */
+}

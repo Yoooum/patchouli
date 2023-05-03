@@ -7,6 +7,8 @@ import router from './router'
 
 import './assets/main.css'
 import 'virtual:uno.css'
+import 'vfonts/Lato.css'
+import 'vfonts/FiraCode.css'
 
 const app = createApp(App)
 

@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { NButton, NSpace, useMessage } from 'naive-ui'
 import { createTableData as fetchRoles } from '../role/table'
 import UserFormDrawer from './components/UserFormDrawer.vue'
-import { createTableColumns,createTableData } from './table'
+import { createTableColumns, createTableData } from './table'
 import SearchForm from '@/pages/role/components/SearchForm.vue'
 
 const message = useMessage()
@@ -72,7 +72,7 @@ function valueToLabel(value = -1, options) {
 const columns = createTableColumns({
   onUpdateRole,
   onRemoveRole,
-  valueToLabel: (value) => valueToLabel(value, roleOptions.value),
+  valueToLabel: value => valueToLabel(value, roleOptions.value),
 })
 
 const roleOptions = computed(() => {
