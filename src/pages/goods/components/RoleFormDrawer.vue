@@ -70,13 +70,13 @@ defineExpose({
           />
         </n-form-item>
         <n-form-item label="商品类别">
-            <n-input v-model:value="form.data.category"/>
+          <n-input v-model:value="form.data.category" />
         </n-form-item>
         <n-form-item label="商品价格">
-            <n-input v-model:value="form.data.price"/>
+          <n-input v-model:value="form.data.price" />
         </n-form-item>
         <n-form-item label="商品库存">
-            <n-input v-model:value="form.data.quantity"/>
+          <n-input v-model:value="form.data.quantity" />
         </n-form-item>
       </n-form>
       <pre>{{ form }}</pre>

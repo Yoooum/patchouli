@@ -6,8 +6,8 @@ export default [
       return {
         id: 1,
         username: '未確認の庭師',
-        email: 'r.yuri@qq.com',
-        avatar: 'http://q2.qlogo.cn/headimg_dl?dst_uin=2638836154&spec=100',
+        email: 'r.yu@qq.com',
+        avatar: 'http://q.qlogo.cn/headimg_dl?dst_uin=2638836154&spec=640&img_type=jpg',
         role: [
           {
             id: 1,

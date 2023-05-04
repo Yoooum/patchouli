@@ -39,6 +39,28 @@ export default [
           icon: 'upload',
           path: '/img/upload',
         },
+        {
+            id: 105,
+            label: '异常',
+            icon: 'extension',
+            children: [
+              {
+                id: 10501,
+                label: '404',
+                path: '/exception/404',
+              },
+              {
+                id: 10502,
+                label: '403',
+                path: '/exception/403',
+              },
+              {
+                id: 10503,
+                label: '500',
+                path: '/exception/500',
+              }
+            ]
+        }
       ]
     },
   },

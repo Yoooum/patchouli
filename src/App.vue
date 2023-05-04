@@ -26,15 +26,17 @@ function override() {
         errorColorHover: '#B33C4A',
         errorColorPressed: '#8F2934',
         backgroundColor: '#F2E7DB',
-      }
+      },
     }
   }
 }
 </script>
 
 <template>
-  <n-config-provider :theme="theme" :theme-overrides="override()"
-                     :locale="zhCN" :date-locale="dateZhCN">
+  <n-config-provider
+    :theme="theme" :theme-overrides="override()"
+    :locale="zhCN" :date-locale="dateZhCN"
+  >
     <n-loading-bar-provider>
       <n-dialog-provider>
         <n-notification-provider>
