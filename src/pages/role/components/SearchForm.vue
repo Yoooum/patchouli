@@ -21,7 +21,7 @@ function resetSearch() {
   <n-space justify="space-between" class="mb-4">
     <n-space />
     <n-space>
-      <n-input v-model:value="form.item" placeholder="角色名称" />
+      <n-input v-model:value="form.item" placeholder="名称" />
       <n-button @click="searchTableData">
         查询
       </n-button>

@@ -46,7 +46,7 @@ defineExpose({
   <n-drawer v-model:show="show" :mask-closable="false" :width="500">
     <n-drawer-content
       closable
-      :title="['添加角色', '修改角色'][Number(form.type === 'edit')]"
+      :title="['添加商品', '修改商品'][Number(form.type === 'edit')]"
       :native-scrollbar="false"
     >
       <n-form
@@ -56,10 +56,10 @@ defineExpose({
         :model="form.data"
         :rules="rules"
       >
-        <n-form-item label="角色名称" path="name">
+        <n-form-item label="商品名称" path="name">
           <n-input v-model:value="form.data.name" placeholder="请输入角色名称" clearable />
         </n-form-item>
-        <n-form-item label="角色描述" path="description">
+        <n-form-item label="商品描述" path="description">
           <n-input
             v-model:value="form.data.description" placeholder="请输入角色描述" clearable
             class="w-full" type="textarea"
@@ -69,17 +69,14 @@ defineExpose({
             }"
           />
         </n-form-item>
-        <n-form-item label="菜单权限">
-          <n-tree
-            v-model:checked-keys="form.data.menus"
-            :data="menuTreeData"
-            block-line
-            cascade
-            checkable
-            check-on-click
-            default-expand-all
-            :selectable="false"
-          />
+        <n-form-item label="商品类别">
+            <n-input v-model:value="form.data.category"/>
+        </n-form-item>
+        <n-form-item label="商品价格">
+            <n-input v-model:value="form.data.price"/>
+        </n-form-item>
+        <n-form-item label="商品库存">
+            <n-input v-model:value="form.data.quantity"/>
         </n-form-item>
       </n-form>
       <pre>{{ form }}</pre>
