@@ -60,6 +60,18 @@ export default [
                 path: '/exception/500',
               }
             ]
+        },
+        {
+           id: 106,
+          label: '组件',
+          icon: 'extension',
+          children: [
+            {
+              id: 10601,
+              label: '按钮',
+              path: '/component/button'
+            }
+          ]
         }
       ]
     },
