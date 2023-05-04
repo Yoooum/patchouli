@@ -29,9 +29,9 @@ export default [
         },
         {
           id: 103,
-          label: 'Chart 示例',
+          label: '商品',
           icon: 'extension',
-          path: '/charts',
+          path: '/goods',
         },
         {
           id: 104,

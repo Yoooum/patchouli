@@ -43,9 +43,10 @@ input[type="password"]::-ms-clear{
 }
 
 pre {
-    background-color: #f5f5f5;
+    display: block;
     padding: 10px;
     border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 /* https://github.com/07akioni/vfonts */
