@@ -6,6 +6,7 @@
 
 ## 参考
 - [frais](https://github.com/cosmoscatts/frais)
+- [soybean-admin](https://github.com/honghuangdc/soybean-admin)
 
 ## 启动项目
 
