@@ -3,13 +3,14 @@ import { computed, ref } from 'vue'
 import { NButton, NSpace, useMessage } from 'naive-ui'
 import RoleFormDrawer from './components/RoleFormDrawer.vue'
 import { createTableColumns, createTableData } from './table'
-import { useAppStore } from '@/stores'
-import { renderIcon } from '@/utils'
+import { useAppStore, useAuthStore } from '@/stores'
+import { currentTimestamp, renderIcon } from '@/utils'
 import { APP_MENU } from '@/config'
 import SearchForm from '@/pages/role/components/SearchForm.vue'
 
 const message = useMessage()
 const app = useAppStore()
+const auth = useAuthStore()
 const refSearch = ref()
 const refDrawer = ref()
 const tableData = ref([])
@@ -49,12 +50,13 @@ function onUpdateRole(data) {
 function onSaveData(data) {
   const init = {
     id: tableData.value.length + 1,
-    createTime: new Date().toLocaleString(),
-    updateTime: new Date().toLocaleString(),
+    // yyyy-MM-dd HH:mm:ss
+    createAt: currentTimestamp(),
+    updateAt: currentTimestamp(),
   }
   const add = () => tableData.value.push({ ...data, ...init })
   const edit = () => {
-    data.updateTime = init.updateTime
+    data.updateAt = init.updateAt
     const index = tableData.value.findIndex(item => item?.id === data.id)
     tableData.value.splice(index, 1, data)
   }
@@ -74,7 +76,7 @@ const columns = createTableColumns({
 )
 
 const menuTreeData = computed(() => {
-  return app.menus.map((menu) => {
+  return auth.menu?.map((menu) => {
     return {
       label: menu.label,
       key: menu.id,

@@ -29,7 +29,7 @@ const fetchUser = () => api.mock.get('/user')
  * @param id - 用户id
  * @description 根据用户id查询对应角色的路由数据
  */
-const fetchRoutes = id => api.mock.get(`/routes/${id}`)
+const fetchRoute = id => api.mock.get(`/route/${id}`)
 
 /**
  * 获取验证码
@@ -45,4 +45,4 @@ const fetchCaptchaSMS = phone => api.mock.post('/captcha/sms', { phone })
  */
 const fetchCaptchaEmail = email => api.mock.post('/captcha/email', { email })
 
-export { fetchToken, fetchUser, fetchRoutes, fetchCaptchaSMS, fetchCaptchaEmail }
+export { fetchToken, fetchUser, fetchRoute, fetchCaptchaSMS, fetchCaptchaEmail }

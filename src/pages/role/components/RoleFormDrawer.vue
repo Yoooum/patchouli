@@ -71,7 +71,7 @@ defineExpose({
         </n-form-item>
         <n-form-item label="菜单权限">
           <n-tree
-            v-model:checked-keys="form.data.menus"
+            v-model:checked-keys="form.data.menu"
             :data="menuTreeData"
             block-line
             cascade

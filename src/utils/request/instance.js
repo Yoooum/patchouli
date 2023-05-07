@@ -42,7 +42,13 @@ export function createAxiosInstance(options = {}) {
           if (config)
             return instance.request(config)
         }
-        return Promise.reject({ code: data.code, message: data.message })
+
+        // 业务错误
+        if (data.code && data.message)
+          return Promise.reject({ code: data.code, message: data.message })
+
+        // 响应结构不匹配，业务正常需要 { code, data } ，错误需要 { code, message }
+        return Promise.reject({ code: 'MISMATCH_RESPONSE', message: '响应结构不匹配' })
       }
 
       return Promise.reject({ code: status, message: response.statusText })

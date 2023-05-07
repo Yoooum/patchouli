@@ -1,5 +1,6 @@
 import { h } from 'vue'
 import { NButton, NPopconfirm, NSpace, NTag } from 'naive-ui'
+import { timestampToDatetime } from '@/utils'
 
 function renderButton(row, type, label, action) {
   return h(NButton, { type, size: 'small', onClick: () => action?.(row) }, { default: () => label })
@@ -22,7 +23,10 @@ function createTableColumns({ onUpdateRole, onRemoveRole }) {
     },
     {
       title: '更新时间',
-      key: 'updateTime',
+      key: 'updateAt',
+      render: (row) => {
+        return timestampToDatetime(row.updateAt)
+      },
     },
     {
       title: '操作',
@@ -49,17 +53,17 @@ function createTableData(search) {
       id: 1,
       name: '管理员',
       description: '拥有所有权限',
-      menus: [101, 102, 10201, 10202, 103, 104],
-      createTime: '2022-01-01 00:00:00',
-      updateTime: '2022-01-01 00:00:00',
+      menu: [101, 102, 10201, 10202, 103, 104],
+      createAt: '2022-01-01 00:00:00',
+      updateAt: '2022-01-01 00:00:00',
     },
     {
       id: 2,
       name: '用户',
       description: '拥有部分权限，可以查看基础页面',
-      menus: [101],
-      createTime: '2022-01-01 00:00:00',
-      updateTime: '2022-01-01 00:00:00',
+      menu: [101],
+      createAt: '2022-01-01 00:00:00',
+      updateAt: '2022-01-01 00:00:00',
     },
   ]
   if (search) {
