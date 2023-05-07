@@ -17,7 +17,7 @@ export default defineConfig({
     unocss({
       presets: [presetUno(), presetIcons()],
     }),
-    viteMockServe(),
+    viteMockServe({ mockPath: 'mock/api' }),
     Components({
       resolvers: [NaiveUiResolver()],
       dts: 'src/types/components.d.ts',
