@@ -1,6 +1,6 @@
 <script setup>
 const type = ['default', 'tertiary', 'primary', 'info', 'success', 'warning', 'error']
-const level = [{}, { secondary: true }, { tertiary: true }, { quaternary: true }, { dashed: true }, { ghost: true}, { round: true }, { circle: true }]
+const level = [{}, { secondary: true }, { tertiary: true }, { quaternary: true }, { dashed: true }, { ghost: true }, { round: true }, { circle: true }]
 </script>
 
 <template>

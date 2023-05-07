@@ -11,7 +11,7 @@ export default {
       path: 'button',
       component: () => import('@/pages/component/button/index.vue'),
       meta: {
-        auth: true,
+        authenticated: true,
         title: '按钮',
       },
     },

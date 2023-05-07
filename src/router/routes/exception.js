@@ -11,7 +11,6 @@ export default {
       path: '404',
       component: () => import('@/pages/exception/404/index.vue'),
       meta: {
-        auth: true,
         title: '404',
       },
     },
@@ -19,7 +18,6 @@ export default {
       path: '403',
       component: () => import('@/pages/exception/403/index.vue'),
       meta: {
-        auth: true,
         title: '403',
       },
     },
@@ -27,7 +25,6 @@ export default {
       path: '500',
       component: () => import('@/pages/exception/500/index.vue'),
       meta: {
-        auth: true,
         title: '500',
       },
     },
